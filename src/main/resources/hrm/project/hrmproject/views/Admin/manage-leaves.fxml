@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="571.0" prefWidth="842.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 0 10px 10px 0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hrm.project.hrmproject.controllers.AdminController.ManageLeavesController">
+   <children>
+      <AnchorPane layoutX="273.0" layoutY="11.0" prefHeight="534.0" prefWidth="555.0" style="-fx-border-radius: 10px;" stylesheets="@css/sidebar.css">
+         <children>
+            <TableView prefHeight="544.0" prefWidth="555.0" style="-fx-background-color: #fff; -fx-background-radius: 8px; -fx-border-radius: 8px; -fx-border-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff);">
+               <columns>
+                  <TableColumn prefWidth="71.7777099609375" style="-fx-background-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-size: 40px;" text="User ID" />
+                  <TableColumn prefWidth="106.44442749023438" style="-fx-background-color: #00d4ff;" text="User Name" />
+                  <TableColumn prefWidth="129.55560302734375" style="-fx-background-color: #00d4ff;" text="Leave Type" />
+                  <TableColumn prefWidth="128.6666259765625" style="-fx-background-color: #00d4ff;" text="Start Date" />
+                  <TableColumn prefWidth="114.66668701171875" style="-fx-background-color: linear-gradient(to bottom left, #a7f0ff , #00d4ff);" text="End Date" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="11.0" layoutY="11.0" prefHeight="544.0" prefWidth="249.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-color:  linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-border-radius: 10px;">
+         <children>
+            <Label layoutX="13.0" layoutY="219.0" text="Leave Type :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="311.0" text="End Date :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="265.0" text="Start Date :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="123.0" text="User ID :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="170.0" text="User Name :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField layoutX="90.0" layoutY="117.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+            <TextField layoutX="90.0" layoutY="164.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <TextField layoutX="90.0" layoutY="213.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <TextField layoutX="90.0" layoutY="259.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <TextField layoutX="90.0" layoutY="305.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <Button layoutX="76.0" layoutY="375.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="112.0" style="-fx-background-color: #A7C957; -fx-border-color: #d2d2d2; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="Approve" />
+            <Button layoutX="76.0" layoutY="441.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="112.0" style="-fx-background-color: #FB5607; -fx-border-color: #d2d2d2; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="Decline " />
+            <FontAwesomeIconView fill="#023047" glyphName="CALENDAR" layoutX="97.0" layoutY="76.0" size="60" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hrm.project.hrmproject.controllers.AdminController.AdminHomeController">
+   <children>
+      <Label layoutX="330.0" layoutY="21.0" prefHeight="36.0" prefWidth="149.0" style="-fx-background-color: light gray;" text="   HR Control Center">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <BorderPane fx:id="border1" layoutX="25.0" layoutY="206.0" prefHeight="325.0" prefWidth="388.0" style="-fx-border-color: black;">
+         <top>
+            <TextField alignment="CENTER" editable="false" prefHeight="44.0" prefWidth="399.0" text="Our Team Across Departments" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+         </top>
+         <right>
+            <PieChart fx:id="statdepartment" prefHeight="324.0" prefWidth="398.0" style="-fx-border-radius: 3;" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+      <BorderPane fx:id="border2" layoutX="450.0" layoutY="205.0" prefHeight="326.0" prefWidth="316.0" style="-fx-border-color: black;">
+         <top>
+            <TextField alignment="CENTER" prefHeight="50.0" prefWidth="314.0" text="Employee Attendance Tracker" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+         </top>
+         <center>
+            <ScrollPane fx:id="attendanceBox" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox fx:id="attendanceContent" prefHeight="258.0" prefWidth="314.0" />
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+      <TextArea layoutX="150.0" layoutY="73.0" prefHeight="98.0" prefWidth="569.0" text="We trust you as our HR lead to manage our most valuable asset—our people. Your dedication to fairness, confidentiality, and effective communication plays a vital role in shaping a positive and productive workplace. Thank you for driving the heart of our organization forward." wrapText="true">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

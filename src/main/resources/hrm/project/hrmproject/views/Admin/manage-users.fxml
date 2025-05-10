@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!--<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.ensa.rhsystem.finaluiproject.ManageUsersController"> -->
+<!--<padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Button mnemonicParsing="false" text="gaga" />
+
+    <Label fx:id="welcomeText" />
+    <Button onAction="#onHelloButtonClick" text="Hello!" />-->
+
+<AnchorPane prefHeight="571.0" prefWidth="842.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 0 10px 10px 0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hrm.project.hrmproject.controllers.AdminController.ManageUsersControllers">
+    <children>
+        <AnchorPane layoutX="11.0" layoutY="11.0" prefHeight="540.0" prefWidth="271.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-border-radius: 10px;">
+            <children>
+                <FontAwesomeIconView glyphName="USER_PLUS" layoutX="91.0" layoutY="143.0" size="70" />
+                <Label layoutX="37.0" layoutY="186.0" prefHeight="17.0" prefWidth="48.0" text="Login : ">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="37.0" layoutY="229.0" prefHeight="17.0" prefWidth="65.0" text="Password :">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="107.0" layoutY="182.0" prefHeight="25.0" prefWidth="151.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+                <TextField layoutX="107.0" layoutY="225.0" prefHeight="25.0" prefWidth="151.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+                <Button layoutX="84.0" layoutY="307.0" mnemonicParsing="false" prefHeight="30.0" style="-fx-background-color: #A7C957; -fx-border-color: #d2d2d2; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="Create New User" />
+                <Button layoutX="104.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" style="-fx-border-color: #d2d2d2; -fx-background-color: #FFBE0B; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="Uodate" />
+                <Button layoutX="111.0" layoutY="399.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="52.0" style="-fx-background-color: #e4e4e4; -fx-border-color: #d2d2d2; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="Clear" />
+                <Button layoutX="97.0" layoutY="451.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-border-color: #d2d2d2; -fx-background-color: #FB5607; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="Delete User" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="310.0" layoutY="11.0" prefHeight="540.0" prefWidth="344.0" style="-fx-border-radius: 0 0 10px 10px;">
+            <children>
+                <TableView layoutX="6.0" prefHeight="540.0" prefWidth="498.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-border-radius: 0 0 10px 10px;">
+                    <columns>
+                        <TableColumn prefWidth="245.99996948242188" style="-fx-background-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-size: 30px;" text="Login" />
+                        <TableColumn prefWidth="248.666748046875" style="-fx-background-color: linear-gradient(to bottom left, #a7f0ff , #00d4ff);" text="Password" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

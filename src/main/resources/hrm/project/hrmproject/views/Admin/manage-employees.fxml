@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<!--<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ensa.rhsystem.finaluiproject.ManageEmployeesController"
+            prefHeight="400.0" prefWidth="600.0">
+
+</AnchorPane>-->
+
+<AnchorPane prefHeight="571.0" prefWidth="842.0" style="-fx-background-color: #caf0f8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hrm.project.hrmproject.controllers.AdminController.ManageEmployeesController">
+   <children>
+        <AnchorPane layoutX="20.0" layoutY="300.0" minHeight="0.0" minWidth="0.0" prefHeight="252.0" prefWidth="797.0" style="-fx-background-color: #fff; -fx-border-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-border-width: 2px; -fx-border-radius: 7px; -fx-background-radius: 7px;">
+            <children>
+                <FontAwesomeIconView fill="#023047" glyphName="USER" layoutX="377.0" layoutY="70.0" size="65" text="" y="-6.0" />
+                <Line endX="87.5555419921875" layoutX="444.0" layoutY="98.0" startX="-166.66668701171875" />
+                <Label layoutX="35.0" layoutY="124.0" text="Email         :" />
+                <Label layoutX="34.0" layoutY="165.0" text="Phone        : " />
+                <Label layoutX="298.0" layoutY="124.0" text="Job Title   :" />
+                <Label layoutX="299.0" layoutY="167.0" text="Hire Date :" />
+                <Label layoutX="550.0" layoutY="126.0" text="Department :" />
+                <Label layoutX="549.0" layoutY="168.0" text="Role             : " />
+                <TextField fx:id="emailField" layoutX="114.0" layoutY="120.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+                <TextField fx:id="phoneField" layoutX="114.0" layoutY="161.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+                <TextField fx:id="jobTitleField" layoutX="377.0" layoutY="120.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+                <Button layoutX="500.0" layoutY="210.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-border-color: #d2d2d2; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="DELETE" />
+                <Button layoutX="400.0" layoutY="210.0" mnemonicParsing="false" onAction="#displayUsersData" style="-fx-background-color: yellow; -fx-border-color: #d2d2d2; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="UPDATE" />
+                <Button layoutX="240.0" layoutY="210.0" mnemonicParsing="false" onAction="#insertUser" style="-fx-background-color: #A7C957; -fx-border-color: #d2d2d2; -fx-background-radius: 7px; -fx-border-radius: 7px;" text="ADD AN EMPLOYEE" />
+            <ComboBox fx:id="roleComboBox" layoutX="628.0" layoutY="162.0" prefWidth="150.0" promptText="Select" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <ComboBox fx:id="departmentComboBox" layoutX="628.0" layoutY="121.0" prefWidth="150.0" promptText="Select" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <Label layoutX="34.0" layoutY="85.0" text="First Name :" />
+            <TextField fx:id="firstNameField" layoutX="114.0" layoutY="80.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <TextField fx:id="lastNameField" layoutX="628.0" layoutY="80.0" style="-fx-border-color: #1c81b3; -fx-background-radius: 7px; -fx-border-radius: 7px;" />
+            <Label layoutX="547.0" layoutY="85.0" text="Last Name :" />
+            <DatePicker fx:id="hireDatePicker" layoutX="378.0" layoutY="158.0" prefHeight="25.0" prefWidth="147.0" style="-fx-background-color: #1c81b3;" />
+            </children>
+      </AnchorPane>
+        <AnchorPane layoutX="35.0" minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="777.0">
+            <children>
+                <TableView fx:id="usersTable" layoutX="30.0" layoutY="48.0" prefHeight="237.0" prefWidth="718.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 10px 0 0 10px 10px; -fx-border-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff);">
+                    <columns>
+                  <TableColumn fx:id="UserID" prefWidth="65.33331298828125" style="-fx-background-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-size: 30px;" text="User ID" />
+                        <TableColumn fx:id="FirstName" prefWidth="77.99996948242188" style="-fx-background-color: #00d4ff;" text="First Name" />
+                        <TableColumn fx:id="LastName" prefWidth="72.00003051757812" style="-fx-background-color: #00d4ff;" text="Last Name" />
+                        <TableColumn fx:id="Email" prefWidth="78.66665649414062" style="-fx-background-color: #00d4ff;" text="Email" />
+                        <TableColumn fx:id="Phone" prefWidth="88.66665649414062" style="-fx-background-color: #00d4ff;" text="Phone" />
+                        <TableColumn fx:id="JobTitle" prefWidth="80.00003051757812" style="-fx-background-color: #00d4ff;" text="Job Title" />
+                  <TableColumn fx:id="HireDate" prefWidth="82.66668701171875" style="-fx-background-color: #00d4ff;" text="Hire Date" />
+                  <TableColumn fx:id="DepartmentName" prefWidth="100.0" style="-fx-background-color: #00d4ff;" text="Department" />
+                        <TableColumn fx:id="RoleID" prefWidth="75.33331298828125" style="-fx-background-color: linear-gradient(to bottom left, #a7f0ff , #00d4ff); -fx-size: 30px;" text="Role" />
+                    </columns>
+                </TableView>
+                <Label layoutX="272.0" layoutY="19.0" text="SEARCH BY :">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <ComboBox editable="true" layoutX="366.0" layoutY="16.0" prefWidth="150.0" promptText="Click to choose " />
+            </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

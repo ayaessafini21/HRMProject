@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="571.0" prefWidth="842.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 0 10px 10px 0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hrm.project.hrmproject.controllers.EmployeeController.HomeEmployeeController">
+   <children>
+      <AnchorPane layoutX="433.0" layoutY="14.0" prefHeight="341.0" prefWidth="396.0" style="-fx-background-color: #fff; -fx-background-radius: 10px; -fx-border-color: #00d4ff; -fx-border-radius: 10px;">
+         <children>
+            <TextField layoutX="213.0" layoutY="37.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
+            <TextField layoutX="255.0" layoutY="117.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
+            <ImageView fitHeight="324.0" fitWidth="390.0" layoutX="3.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/tree_diagram1.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="255.0" layoutY="189.7" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
+            <TextField layoutX="213.0" layoutY="262.5" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
+            <Button layoutX="24.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #FFB703; -fx-background-radius: 8px; -fx-border-color: #d2d2d2; -fx-border-radius: 8px;" text="Download Salary File" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="341.0" prefWidth="390.0" style="-fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff);">
+         <children>
+            <TableView layoutX="1.0" layoutY="2.1" prefHeight="335.0" prefWidth="390.0" style="-fx-background-color: #fff; -fx-border-radius: 0 0 10px 10px; -fx-background-radius: 0 0 10px 10px;">
+              <columns>
+                <TableColumn minWidth="20.0" prefWidth="100.66665840148926" style="-fx-background-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-size: 30px;" text="Course Name" />
+                  <TableColumn minWidth="20.0" prefWidth="90.66667938232422" style="-fx-background-color: #00d4ff; -fx-size: 30px;" text="Start Date" />
+                  <TableColumn minWidth="20.0" prefWidth="94.66664123535156" style="-fx-background-color: #00d4ff; -fx-size: 30px;" text="End Date" />
+                  <TableColumn minWidth="20.0" prefWidth="107.3333740234375" style="-fx-background-color: #00d4ff; -fx-size: 30px;" text="Status" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="45.0" layoutY="375.0" prefHeight="183.0" prefWidth="730.0" style="-fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff);">
+         <children>
+            <TableView layoutX="1.0" layoutY="2.2" prefHeight="177.0" prefWidth="728.0" style="-fx-background-color: #fff; -fx-border-radius: 0 0 10px 10px; -fx-background-radius: 0 0 10px 10px;">
+               <columns>
+                  <TableColumn minWidth="20.0" prefWidth="157.7777976989746" style="-fx-background-color: linear-gradient(to bottom right, #a7f0ff , #00d4ff); -fx-size: 30px;" text="Date" />
+                  <TableColumn minWidth="20.0" prefWidth="119.55548095703125" style="-fx-background-color: #00d4ff; -fx-size: 30px;" text="Check in" />
+                  <TableColumn minWidth="20.0" prefWidth="127.33331298828125" style="-fx-background-color: #00d4ff; -fx-size: 30px;" text="Check out" />
+                  <TableColumn minWidth="20.0" prefWidth="186.66668701171875" style="-fx-background-color: #00d4ff; -fx-size: 30px;" text="Notes" />
+                  <TableColumn minWidth="20.0" prefWidth="138.6666259765625" style="-fx-background-color: #00d4ff; -fx-size: 30px;" text="Status" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.40474598930481276" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hrm.project.hrmproject.controllers.SignInController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #219EBC;">
+         <children>
+            <ImageView fitHeight="152.0" fitWidth="150.0" layoutX="21.599999999999994" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="67.6">
+               <image>
+                  <Image url="@../images/logoo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="36.0" layoutY="231.0" prefHeight="74.0" prefWidth="167.0" style="-fx-background-color: white;" text="Together we grow—with honesty and purpose." textAlignment="CENTER" textFill="#023047" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <InnerShadow />
+         </effect></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #caf0f8;">
+         <children>
+            <Label layoutX="30.0" layoutY="55.0" prefHeight="64.0" prefWidth="293.0" text="    WELCOME TO HRM" textFill="#181369" textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font name="Georgia" size="26.0" />
+               </font>
+            </Label>
+            <TextField layoutX="103.0" layoutY="158.0" promptText="Mail Adresss" />
+            <TextField layoutX="103.0" layoutY="223.0" promptText="Password" />
+            <Button layoutX="138.0" layoutY="283.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Login" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
