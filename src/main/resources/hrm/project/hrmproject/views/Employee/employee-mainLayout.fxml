@@ -35,7 +35,7 @@
                <left>
                   <AnchorPane prefHeight="600.0" prefWidth="225.0" style="-fx-background-color: #219EBC; -fx-border-radius: 50px;" BorderPane.alignment="CENTER">
                      <children>
-                        <FontAwesomeIconView fill="#023047" glyphName="USER" layoutX="89.0" layoutY="133.0" size="65" />
+                        <FontAwesomeIconView fill="#023047" glyphName="USER" layoutX="89.0" layoutY="133.0" size="65" text="" />
                         <Label layoutX="73.0" layoutY="153.0" text="Welcome" textAlignment="CENTER">
                            <font>
                               <Font size="19.0" />

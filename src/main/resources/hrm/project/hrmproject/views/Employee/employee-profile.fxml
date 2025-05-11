@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.4" prefWidth="874.4" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Line endX="-91.60000610351562" endY="192.20001220703125" layoutX="320.0" layoutY="277.0" startX="-91.60000610351562" startY="-90.80000305175781" />
+      <Label layoutX="55.0" layoutY="189.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #caf0f8;" text="     Account ">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="437.0" layoutY="185.0" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #caf0f8;" text="Profile">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField editable="false" layoutX="40.0" layoutY="283.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <TextField editable="false" layoutX="40.0" layoutY="371.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <Label layoutX="68.0" layoutY="245.0" prefHeight="18.0" prefWidth="93.0" text="Mail Address" />
+      <Label layoutX="63.0" layoutY="339.0" prefHeight="18.0" prefWidth="78.0" text="   Password" />
+      <Label alignment="CENTER" layoutX="301.0" layoutY="107.0" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: #caf0f8;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="268.0" layoutY="245.0" text="Phone Number" />
+      <Label layoutX="268.0" layoutY="406.0" prefHeight="18.0" prefWidth="62.0" text="Address" />
+      <Label layoutX="268.0" layoutY="299.0" text="Birth Date" />
+      <Label layoutX="268.0" layoutY="354.0" text="Hire Date" />
+      <Label alignment="CENTER" layoutX="589.0" layoutY="301.0" prefHeight="18.0" prefWidth="62.0" text="Job Title" />
+      <Label alignment="CENTER" layoutX="592.0" layoutY="348.0" text="Department " />
+      <TextField editable="false" layoutX="364.0" layoutY="244.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <TextField editable="false" layoutX="361.0" layoutY="404.0" prefHeight="26.0" prefWidth="194.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <TextField editable="false" layoutX="362.0" layoutY="295.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <TextField editable="false" layoutX="363.0" layoutY="350.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <TextField editable="false" layoutX="674.0" layoutY="299.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <TextField editable="false" layoutX="675.0" layoutY="349.0" style="-fx-border-color: #1c81b3; -fx-border-radius: 7px; -fx-background-radius: 7px;" />
+      <FontIcon iconColor="#023047" iconLiteral="fas-user" iconSize="70" layoutX="405.0" layoutY="90.0" text="" wrappingWidth="35.89996337890625" />
+   </children>
+</AnchorPane>

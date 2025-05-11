@@ -9,8 +9,10 @@ module hrm.project.hrmproject {
     opens hrm.project.hrmproject to javafx.fxml;
     opens hrm.project.hrmproject.controllers to javafx.fxml;
     opens hrm.project.hrmproject.controllers.AdminController to javafx.fxml;
+    opens hrm.project.hrmproject.controllers.EmployeeController to javafx.fxml;
     exports hrm.project.hrmproject;
     exports hrm.project.hrmproject.controllers to javafx.fxml;
     exports hrm.project.hrmproject.controllers.AdminController to javafx.fxml;
+    exports hrm.project.hrmproject.controllers.EmployeeController to javafx.fxml;
 
 }

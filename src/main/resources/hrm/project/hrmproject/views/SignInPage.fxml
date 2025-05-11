@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <SplitPane dividerPositions="0.40474598930481276" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hrm.project.hrmproject.controllers.SignInController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #219EBC;">
@@ -35,9 +36,9 @@
                   <Font name="Georgia" size="26.0" />
                </font>
             </Label>
-            <TextField layoutX="103.0" layoutY="158.0" promptText="Mail Adresss" />
-            <TextField layoutX="103.0" layoutY="223.0" promptText="Password" />
-            <Button layoutX="138.0" layoutY="283.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Login" />
+             <TextField fx:id="emailField" layoutX="103.0" layoutY="158.0" promptText="Mail Adresss" />
+             <PasswordField fx:id="passwordField" layoutX="103.0" layoutY="223.0" promptText="Password" />
+             <Button fx:id="loginButton" layoutX="138.0" layoutY="283.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Login" />
          </children></AnchorPane>
   </items>
 </SplitPane>
