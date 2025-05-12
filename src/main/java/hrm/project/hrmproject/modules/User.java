@@ -13,9 +13,6 @@ public class User {
     private String jobTitle;
     private Department department; // Foreign key reference to Department
 
-    public User(int id, String role, String firstname, String lastname, String mail, String phone, String address, Date datebirth, Date hiredate, String job, int idDep) {
-    }
-
     // Getters and Setters
     public int getIdUser() {
         return idUser;

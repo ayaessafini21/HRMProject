@@ -2,7 +2,6 @@ package hrm.project.hrmproject.modules;
 import java.sql.Date;
 public class SalaryFile {
     private int idSalaryFile;
-    private String filePath;
     private Date downloadDate;
     private User user; // Foreign key reference to User
 
@@ -15,13 +14,6 @@ public class SalaryFile {
         this.idSalaryFile = idSalaryFile;
     }
 
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
 
     public Date getDownloadDate() {
         return downloadDate;

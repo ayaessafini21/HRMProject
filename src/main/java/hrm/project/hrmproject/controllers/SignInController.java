@@ -2,6 +2,7 @@ package hrm.project.hrmproject.controllers;
 
 import DAO.Employee;
 import hrm.project.hrmproject.controllers.EmployeeController.HomeEmployeeController;
+import hrm.project.hrmproject.controllers.EmployeeController.MainEmployeeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,30 +69,28 @@ public class SignInController {
 
     private void navigateToHomePage(ActionEvent event, int userId, Connection conn) throws IOException, SQLException {
         try {
-            // Load the FXML for the home page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/hrm/project/hrmproject/views/Employee/employee-home.fxml"));
-            Parent homePageRoot = loader.load();
+            // Load the main layout FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/hrm/project/hrmproject/views/Employee/employee-mainLayout.fxml"));
+            Parent mainLayoutRoot = loader.load();
 
-            // Get the controller and initialize it with user data
-            HomeEmployeeController homeController = loader.getController();
-            homeController.initializeData(conn, userId);
+            // Get the main layout controller and pass data
+            MainEmployeeController mainController = loader.getController();
+            mainController.loadHomePage(conn, userId); // this will load employee-home.fxml in center
 
             // Set up the new scene
-            Scene homeScene = new Scene(homePageRoot);
-
-            // Get the current stage and set the new scene
+            Scene scene = new Scene(mainLayoutRoot);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Employee Dashboard");
-            stage.setScene(homeScene);
+            stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            // Close the connection if navigation fails
             if (conn != null && !conn.isClosed()) {
                 conn.close();
             }
             throw e;
         }
     }
+
 
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);

@@ -8,6 +8,7 @@ module hrm.project.hrmproject {
     requires org.kordamp.ikonli.fontawesome5;
     opens hrm.project.hrmproject to javafx.fxml;
     opens hrm.project.hrmproject.controllers to javafx.fxml;
+    opens hrm.project.hrmproject.modules to javafx.base;
     opens hrm.project.hrmproject.controllers.AdminController to javafx.fxml;
     opens hrm.project.hrmproject.controllers.EmployeeController to javafx.fxml;
     exports hrm.project.hrmproject;

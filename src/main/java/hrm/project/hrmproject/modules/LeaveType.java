@@ -20,4 +20,8 @@ public class LeaveType {
     public void setVacationType(String vacationType) {
         this.vacationType = vacationType;
     }
+    @Override
+    public String toString() {
+        return vacationType;
+    }
 }

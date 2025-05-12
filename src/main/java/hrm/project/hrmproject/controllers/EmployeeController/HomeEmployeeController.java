@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,10 +22,13 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeEmployeeController {
 
+    @FXML private Button checkin;
+    @FXML private Button checkout;
     @FXML private TextField brutSalaryField;
     @FXML private TextField bonusField;
     @FXML private TextField netSalaryField;
@@ -47,7 +51,7 @@ public class HomeEmployeeController {
 
     private Connection conn;
     private int userId;
-    private String salaryFilePath;
+    private List<Object> salaryData;
 
     public void initializeData(Connection conn, int userId) {
         this.conn = conn;
@@ -56,11 +60,13 @@ public class HomeEmployeeController {
         setupTrainingTable();
         setupAttendanceTable();
         loadTrainingData();
-        loadSalaryInfo();
+        salaryData = loadSalaryInfo();
         loadAttendanceInfo();
         startAttendanceRefresh();
 
         downloadSalaryFileButton.setOnAction(e -> downloadSalaryFile());
+        checkin.setOnAction(e -> handleCheckIn());
+        checkout.setOnAction(e -> handleCheckOut());
     }
 
     private void setupTrainingTable() {
@@ -68,11 +74,45 @@ public class HomeEmployeeController {
         startDateColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         endDateColumn.setCellValueFactory(new PropertyValueFactory<>("endDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        // Set custom cell factories to handle null values
+        courseNameColumn.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item);
+            }
+        });
+
+        startDateColumn.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(java.util.Date item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item.toString());
+            }
+        });
+
+        endDateColumn.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(java.util.Date item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item.toString());
+            }
+        });
+
+        statusColumn.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" : item);
+            }
+        });
     }
 
     private void setupAttendanceTable() {
         dateColumn.setCellValueFactory(cell -> {
             var d = cell.getValue().getDateDim();
+            if (d == null) return new javafx.beans.property.SimpleStringProperty("");
             return new javafx.beans.property.SimpleStringProperty(
                     d.getDay() + "/" + d.getMonth() + "/" + d.getYear()
             );
@@ -81,20 +121,26 @@ public class HomeEmployeeController {
         checkInColumn.setCellValueFactory(cell -> {
             var t = cell.getValue().getCheckinTime();
             return new javafx.beans.property.SimpleStringProperty(
-                    t != null ? t.toLocalDateTime().toLocalTime().toString() : "N/A"
+                    t != null ? t.toLocalDateTime().toLocalTime().toString() : ""
             );
         });
 
         checkOutColumn.setCellValueFactory(cell -> {
             var t = cell.getValue().getCheckoutTime();
             return new javafx.beans.property.SimpleStringProperty(
-                    t != null ? t.toLocalDateTime().toLocalTime().toString() : "N/A"
+                    t != null ? t.toLocalDateTime().toLocalTime().toString() : ""
             );
         });
 
+        notesColumn.setCellValueFactory(cell -> {
+            String remarks = cell.getValue().getRemarks();
+            return new javafx.beans.property.SimpleStringProperty(remarks != null ? remarks : "");
+        });
 
-        notesColumn.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(cell.getValue().getRemarks()));
-        attendanceStatusColumn.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(cell.getValue().getStatus()));
+        attendanceStatusColumn.setCellValueFactory(cell -> {
+            String status = cell.getValue().getStatus();
+            return new javafx.beans.property.SimpleStringProperty(status != null ? status : "");
+        });
     }
 
     private void loadTrainingData() {
@@ -106,19 +152,21 @@ public class HomeEmployeeController {
         }
     }
 
-    private void loadSalaryInfo() {
+    private List<Object> loadSalaryInfo() {
         try {
             List<Object> data = Employee.salary_info(userId, conn);
-            if (data.size() >= 2 && data.get(0) instanceof Salary salary) {
-                brutSalaryField.setText(salary.getBrutSalary().toString());
-                bonusField.setText(salary.getBonus().toString());
-                netSalaryField.setText(salary.getNetSalary().toString());
-                taxesField.setText(salary.getTaxes().toString());
-                salaryFilePath = (String) data.get(1);
+            if (data.size() >= 1 && data.get(0) instanceof Salary salary) {
+                brutSalaryField.setText(salary.getBrutSalary() != null ? salary.getBrutSalary().toString() : "");
+                bonusField.setText(salary.getBonus() != null ? salary.getBonus().toString() : "");
+                netSalaryField.setText(salary.getNetSalary() != null ? salary.getNetSalary().toString() : "");
+                taxesField.setText(salary.getTaxes() != null ? salary.getTaxes().toString() : "");
             }
+
+            return data;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     private void loadAttendanceInfo() {
@@ -158,31 +206,32 @@ public class HomeEmployeeController {
 
     @FXML
     private void downloadSalaryFile() {
-        if (salaryFilePath == null) {
-            showAlert("Error", "Salary file path is not available.");
+        if (salaryData == null || salaryData.isEmpty()) {
+            showAlert("Error", "Salary data is not available.");
             return;
         }
 
         try {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Save Salary File");
-            fileChooser.setInitialFileName(Paths.get(salaryFilePath).getFileName().toString());
-            File dest = fileChooser.showSaveDialog(null);
+            // Create a list to hold only Salary objects
+            List<Salary> salaryList = new ArrayList<>();
 
-            if (dest != null) {
-                try (FileInputStream fis = new FileInputStream(salaryFilePath);
-                     FileOutputStream fos = new FileOutputStream(dest)) {
-                    byte[] buffer = new byte[1024];
-                    int len;
-                    while ((len = fis.read(buffer)) > 0) {
-                        fos.write(buffer, 0, len);
-                    }
-                    showAlert("Success", "Salary file downloaded successfully.");
+            // Extract Salary objects from salaryData
+            for (Object obj : salaryData) {
+                if (obj instanceof Salary) {
+                    salaryList.add((Salary) obj);
                 }
+            }
+
+            // Call the download_salary method with the filtered list
+            if (!salaryList.isEmpty()) {
+                Employee.download_salary(salaryList);
+                showAlert("Success", "Salary file downloaded successfully.");
+            } else {
+                showAlert("Error", "No salary information found.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Error", "Could not download salary file.");
+            showAlert("Error", "Could not download salary file: " + e.getMessage());
         }
     }
 
@@ -205,5 +254,30 @@ public class HomeEmployeeController {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+    private void handleCheckIn() {
+        try {
+            int id_date = getDateId(LocalDate.now());
+            // Insert the check-in logic here (e.g., insert a new attendance record with the check-in time)
+            Employee.checkIn(userId, conn, id_date);
+            // Optional: Show success message
+            showAlert("Success", "Checked in successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to check in.");
+        }
+    }
+
+    private void handleCheckOut() {
+        try {
+            int id_date = getDateId(LocalDate.now());
+            // Insert the check-out logic here (e.g., update the attendance record with the check-out time)
+            Employee.checkOut(userId, conn, id_date);
+            // Optional: Show success message
+            showAlert("Success", "Checked out successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to check out.");
+        }
     }
 }

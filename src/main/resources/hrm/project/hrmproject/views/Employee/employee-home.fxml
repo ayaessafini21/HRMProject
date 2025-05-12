@@ -16,8 +16,8 @@
          <children>
             <TextField fx:id="brutSalaryField" layoutX="213.0" layoutY="37.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
             <TextField fx:id="bonusField" layoutX="255.0" layoutY="117.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
-            <TextField fx:id="netSalaryField" layoutX="255.0" layoutY="189.7" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
-            <TextField fx:id="taxesField" layoutX="213.0" layoutY="262.5" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
+            <TextField fx:id="taxesField" layoutX="255.0" layoutY="189.7" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
+            <TextField fx:id="netSalaryField" layoutX="213.0" layoutY="262.5" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #caf0f8; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #00d4ff;" />
             <ImageView fitHeight="324.0" fitWidth="390.0" layoutX="3.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/tree_diagram1.png" />
@@ -55,6 +55,8 @@
             </TableView>
          </children>
       </AnchorPane>
+      <Button fx:id="checkin" layoutX="780.0" layoutY="392.0" mnemonicParsing="false" text="Checkin" />
+      <Button fx:id="checkout" layoutX="780.0" layoutY="442.0" mnemonicParsing="false" text="Checkout" />
 
    </children>
 </AnchorPane>
